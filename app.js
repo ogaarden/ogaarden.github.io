@@ -42,24 +42,14 @@ function createArray(len) {
     }
     return array;
 }
-function visualizeArray(array, movingIndex) {
-    if (movingIndex === void 0) { movingIndex = null; }
+function visualizeArray(array) {
     var arrayDiv = document.getElementById("arrayDiv");
     arrayDiv.innerHTML = ""; // Fjern eventuelle eksisterende bokser
     for (var i = 0; i < array.length; i++) {
         var value = array[i];
         var box = document.createElement("div");
         box.classList.add("box");
-        if (i === movingIndex) {
-            box.style.background = "red"; // Boksen er rød når den flyttes
-        }
-        else {
-            box.style.background = "blue"; // Boksen er blå ellers
-        }
         box.style.height = "".concat(value, "px");
-        var boxWidth = (containerWidth - (boxMargin * 2) - (boxPadding * 2) - (boxBorder * 2)) /
-            array.length;
-        box.style.width = "".concat(boxWidth, "px");
         arrayDiv.appendChild(box);
     }
 }

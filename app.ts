@@ -8,7 +8,7 @@ function createArray(len: number): number[] {
   return array;
 }
 
-function visualizeArray(array: number[], movingIndex: number | null = null) {
+function visualizeArray(array: number[]) {
   const arrayDiv = document.getElementById("arrayDiv");
   arrayDiv.innerHTML = ""; // Fjern eventuelle eksisterende bokser
 
@@ -16,22 +16,10 @@ function visualizeArray(array: number[], movingIndex: number | null = null) {
     const value = array[i];
     const box = document.createElement("div");
     box.classList.add("box");
-
-    if (i === movingIndex) {
-      box.style.background = "red"; // Boksen er rød når den flyttes
-    } else {
-      box.style.background = "blue"; // Boksen er blå ellers
-    }
-
     box.style.height = `${value}px`;
-    const boxWidth =
-      (containerWidth - (boxMargin * 2) - (boxPadding * 2) - (boxBorder * 2)) /
-      array.length;
-    box.style.width = `${boxWidth}px`;
     arrayDiv.appendChild(box);
   }
 }
-
 
 function bubbleSort(): Promise<number[]> {
   return new Promise((resolve) => {
